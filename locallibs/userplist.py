@@ -1,3 +1,17 @@
+# Copyright 2017 Greg Neagle.
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#      http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
 '''Generates our user account plist'''
 
 import uuid
@@ -37,4 +51,6 @@ def generate(user_dict):
         user[u'picture'] = [user_dict[u'image_path']]
     if u'image_data' in user_dict:
         user[u'jpegphoto'] = [user_dict[u'image_data']]
+    if u'IsHidden' in user_dict:
+        user[u'IsHidden'] = [user_dict[u'IsHidden']]
     return user
